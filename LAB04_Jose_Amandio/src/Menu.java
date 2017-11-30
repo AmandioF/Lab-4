@@ -20,16 +20,22 @@ public class Menu {
 			opcao = sc.nextLine();
 			switch(opcao) {
 				case "C":
+					cadastraAluno();
 					break;
 				case "E":
+					exibirAluno();
 					break;
 				case "N":
+					cadastraGrupo();
 					break;
 				case "A":
+					alocaAlunoEimprime();
 					break;
 				case "R":
+					registraResp();
 					break;
 				case "I":
+					imprimeRespondoes();
 					break;
 				case "O":
 					break;
@@ -38,5 +44,30 @@ public class Menu {
 		} while(opcao.equals("O"));
 
 	}
+	
+	
+	public static void cadastraAluno() {
+		
+	}
+	
+	public static void exibirAluno() {
+		
+	}
+	
+	public static void cadastraGrupo() {
+		
+	}
+	public static void alocaAlunoEimprime() {
+		
+	}
+	
+	public static void registraResp(){
+		
+	}
+	
+	public static void imprimeRespondoes() {
+		
+	}
+	
 
 }

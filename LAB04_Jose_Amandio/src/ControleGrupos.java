@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 public class ControleGrupos {
 	private HashMap<String, Grupo> grupos;
@@ -25,6 +25,10 @@ public class ControleGrupos {
 		}else {
 			return grupos.get(nome).toString();
 		}
+	}
+	
+	public void alocaAluno(String nomeGrupo, String matricula) {
+		grupos.get(nomeGrupo).alocaAluno(getAluno(matricula));
 	}
 
 }

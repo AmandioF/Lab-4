@@ -21,6 +21,14 @@ public class ControleAlunos {
 		}
 	}
 	
+	public Aluno getAluno (String matricula) {
+		if(!this.contemAluno(matricula)) {
+			throw new IllegalArgumentException("Aluno não cadastrado");
+		}else {
+			return alunos.get(matricula);
+		}
+	}
+	
 	public String consultaAluno(String matricula) {
 		if(!this.contemAluno(matricula)) {
 			throw new IllegalArgumentException("Aluno não cadastrado");
