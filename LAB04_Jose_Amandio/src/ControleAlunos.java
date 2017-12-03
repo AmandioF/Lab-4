@@ -9,36 +9,38 @@ public class ControleAlunos {
 		this.quadro = new ArrayList<>();
 	}
 	
-	private boolean contemAluno(String matricula) {
-		return alunos.containsKey(matricula);
-	}
-	public boolean cadastraAluno(Aluno aluno) {
-		if(this.contemAluno(aluno.getMatricula())) {
-			return false;
-		}else {
-			alunos.put(aluno.getMatricula(), aluno);
-			return true;
+	public void contemAluno(String matricula, boolean val) {
+		if(matricula == null) {
+			throw new NullPointerException("Caractere nulo");
 		}
+		if(!val && !alunos.containsKey(matricula)) {
+			throw new IllegalArgumentException("Aluno não cadastrado");
+		}
+		if(val && alunos.containsKey(matricula)) {
+			throw new IllegalArgumentException("Aluno já cadastrado");
+		}
+		
+	}
+	public String cadastraAluno(Aluno aluno) {
+		this.contemAluno(aluno.getMatricula(), true);
+		alunos.put(aluno.getMatricula(), aluno);
+		return "CADASTRO REALIZADO";
 	}
 	
 	public Aluno getAluno (String matricula) {
-		if(!this.contemAluno(matricula)) {
-			throw new IllegalArgumentException("Aluno não cadastrado");
-		}else {
-			return alunos.get(matricula);
-		}
+		this.contemAluno(matricula, false);
+		return alunos.get(matricula);
 	}
 	
 	public String consultaAluno(String matricula) {
-		if(!this.contemAluno(matricula)) {
-			throw new IllegalArgumentException("Aluno não cadastrado");
-		}else {
-			return alunos.get(matricula).toString();
-		}
+		this.contemAluno(matricula, false);
+		return alunos.get(matricula).toString();
 	}
 	
-	public void registraResposta(String matricula) {
+	public String registraResposta(String matricula) {
+		contemAluno(matricula, false);
 		this.quadro.add(alunos.get(matricula));
+		return "ALUNO REGISTRADO";
 	}
 	
 	public String imprimeRespondoes() {

@@ -5,10 +5,20 @@ public class Grupo {
 	private String nome;
 	
 	public Grupo(String novoNome) {
+		this.validade(novoNome);
 		this.nome = novoNome;
+		
 		this.participantes = new HashSet<>();
 	}
 	
+	public void validade(String palavra) {
+		if(palavra == null) {
+			throw new NullPointerException("CARACTER NULO");
+		}
+		if(palavra.trim().equals("")) {
+			throw new IllegalArgumentException("CARACTERE VAZIO");
+		}
+	}
 	public void alocaAluno(Aluno aluno) {
 		this.participantes.add(aluno);
 	}
