@@ -1,5 +1,11 @@
 import java.util.Scanner;
 
+
+/**
+* Representação de um menu.
+*
+* @author José Amandio Ferreira dos Santos
+*/
 public class Menu {
 	private static Scanner sc = new Scanner(System.in);
 	private static ControleAlunos controleAluno = new ControleAlunos();
